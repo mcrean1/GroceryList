@@ -7,6 +7,7 @@ function addItem(){
      btnClose.classList.add("btn");
      btnClose.classList.add("btn-danger");
      btnClose.classList.add("btn-xs");
+     btnClose.addEventListener("click",removeParentListItem);
 
   var iconClose = document.createElement("span");
     btnClose.appendChild(iconClose);
@@ -20,6 +21,11 @@ var itemName = document.createTextNode(input);
   list.appendChild(item);
   document.getElementById("newItem").innerHTML = "";
   console.log(input);
+}
+function removeParentListItem(){
+  var mom = this.parentNode;
+  var grandma = mom.parentNode;
+  grandma.removeChild(mom);
 }
 
 
