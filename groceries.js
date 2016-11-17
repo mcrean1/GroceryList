@@ -1,6 +1,20 @@
+var myList = [];
+
+
 function addItem(){
   var input = document.getElementById("newItem").value;
+   Find = myList.indexOf(input);
+   if(Find == -1)
+   {
+     myList.push(input);
+     console.log(myList);
+   }
+
+
+
+
   var list = document.getElementById("listDisplay");
+
 
 
   var btnClose = document.createElement("button");
@@ -21,8 +35,10 @@ var itemName = document.createTextNode(input);
   list.appendChild(item);
   document.getElementById("newItem").innerHTML = "";
   console.log(input);
+
 }
-function removeParentListItem(){
+function removeParentListItem()
+{
   var mom = this.parentNode;
   var grandma = mom.parentNode;
   grandma.removeChild(mom);
