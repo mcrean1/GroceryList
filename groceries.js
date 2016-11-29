@@ -1,5 +1,5 @@
 var myList = [];
-
+var dog = "";
 
 function addItem(){
   var input = document.getElementById("newItem").value;
@@ -10,10 +10,7 @@ function addItem(){
      console.log(myList);
    }
 
-
-
-
-  var list = document.getElementById("listDisplay");
+var list = document.getElementById("listDisplay");
 
 
 
@@ -46,6 +43,17 @@ function removeParentListItem()
   var itemIndex = myList.indexOf(itemRemove);
   myList.splice(itemIndex,1);
   console.log(myList);
+}
+function saveList()
+{
+ dog = myList.join();
+setCookie("doglist",dog,1);
+}
+
+function removeList()
+{
+  document.getElementById("listDisplay").innerHTML = "";
+  myList = [];
 }
 
 
