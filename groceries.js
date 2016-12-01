@@ -72,9 +72,9 @@ var cooks = getCookie("doglist");
 var arrayCookie = cooks.split("");
 
 for(var i=0; i < arrayCookie.length; i++)
-{
-displayItem(arrayCookie[i]);
-}
+  {
+   displayItem(arrayCookie[i]);
+  }
 
 }
 
