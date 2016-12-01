@@ -1,18 +1,24 @@
+window.onload = loadCookieList;
 var myList = [];
 var dog = "";
 
-function addItem(){
+function addItem()
+{
   var input = document.getElementById("newItem").value;
-   Find = myList.indexOf(input);
-   if(Find == -1)
-   {
+  displayItem(input);
+
+}
+
+function displayItem(input)
+{
+  var Find = myList.indexOf(input);
+  if(Find == -1)
+  {
      myList.push(input);
      console.log(myList);
-   }
-
-var list = document.getElementById("listDisplay");
 
 
+  var list = document.getElementById("listDisplay");
 
   var btnClose = document.createElement("button");
      btnClose.classList.add("btn");
@@ -25,15 +31,17 @@ var list = document.getElementById("listDisplay");
     iconClose.classList.add("glyphicon");
     iconClose.classList.add("glyphicon-remove");
 
-var item = document.createElement("li");
-var itemName = document.createTextNode(input);
+ var item = document.createElement("li");
+ var itemName = document.createTextNode(input);
   item.appendChild(itemName);
   item.appendChild(btnClose);
   list.appendChild(item);
   document.getElementById("newItem").innerHTML = "";
   console.log(input);
-
+ }
 }
+
+
 function removeParentListItem()
 {
   var mom = this.parentNode;
@@ -44,10 +52,11 @@ function removeParentListItem()
   myList.splice(itemIndex,1);
   console.log(myList);
 }
+
 function saveList()
 {
  dog = myList.join();
-setCookie("doglist",dog,1);
+ setCookie("doglist",dog,1);
 }
 
 function removeList()
@@ -56,6 +65,18 @@ function removeList()
   myList = [];
 }
 
+
+function loadCookieList()
+{
+var cooks = getCookie("doglist");
+var arrayCookie = cooks.split("");
+
+for(var i=0; i < arrayCookie.length; i++)
+{
+displayItem(arrayCookie[i]);
+}
+
+}
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
